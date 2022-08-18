@@ -68,7 +68,6 @@ namespace WavFile {
 		while (input_ptr < input_ptr_end) {
 			ChunkHead* chunk_head = reinterpret_cast<ChunkHead*>(input_ptr);
 			if (chunk_head->type == 0x61746164) {  // data = 0x61746164
-				input_ptr += sizeof(ChunkHead);
 				assert(chunk_head->size % sizeof(D) == 0);
 				data =
 					std::vector<D>(
